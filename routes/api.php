@@ -36,6 +36,7 @@ $api->version('v1', function (Router $api) {
     });
 
     $api->group(['prefix' => 'leave', 'middleware' => 'jwt.auth'], function(Router $api) {
+        $api->get('', 'App\Http\Controllers\LeaveController@index');
         $api->get('/{id}', 'App\Http\Controllers\LeaveController@view');
         $api->post('', 'App\Http\Controllers\LeaveController@create');
         $api->put('/{id}', 'App\Http\Controllers\LeaveController@update');

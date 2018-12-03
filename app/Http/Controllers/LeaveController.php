@@ -54,4 +54,12 @@ class LeaveController extends Controller
             'data' => $leave
         ], 201);
     }
+
+    public function index() {
+        $leaves = Leave::all();
+        return response()->json([
+            'status' => 'ok',
+            'data' => $leaves
+        ], 201);
+    }
 }
