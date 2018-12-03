@@ -49,6 +49,18 @@ return [
             'email' => 'required|email',
             'password' => 'required|confirmed'
         ]
-    ]
+        ],
+
+        'leave' => [
+            // here you can specify some validation rules for your login request
+            'validation_rules' => [
+                'contact' => 'required',
+                'reasons' => 'required',
+                'from' => 'required',
+                'to' => 'required',
+                'type' => 'required',
+                'status' => 'required'
+            ]
+        ]
 
 ];

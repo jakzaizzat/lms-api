@@ -35,6 +35,13 @@ $api->version('v1', function (Router $api) {
         ]);
     });
 
+    $api->group(['prefix' => 'leave', 'middleware' => 'jwt.auth'], function(Router $api) {
+        $api->get('/{id}', 'App\Http\Controllers\LeaveController@view');
+        $api->post('', 'App\Http\Controllers\LeaveController@create');
+        $api->put('/{id}', 'App\Http\Controllers\LeaveController@update');
+        $api->delete('/{id}', 'App\Http\Controllers\LeaveController@delete');
+    });
+
     $api->get('hello', function() {
         return response()->json([
             'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
