@@ -55,8 +55,13 @@ class LeaveController extends Controller
         ], 201);
     }
 
-    public function index() {
+    public function index(Request $request) {
+
         $leaves = Leave::all();
+        if ($request->query()) {
+            $leaves = $leaves->where('status', $request->query()["status"]);
+        }
+
         return response()->json([
             'status' => 'ok',
             'data' => $leaves
